@@ -1,0 +1,80 @@
+---
+title: "Prosper Loans Exploration"
+author: "Dumky de Wilde"
+date: "28 August 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+setwd("~/Coding/webdev/dand_ps6_datavis/app/data")
+library("ggplot2")
+library("dplyr")
+library("tidyr")
+library("knitr")
+```
+
+```{r}
+pl_data <- read.csv("prosperLoanData.csv")
+
+pl_data$ListingCreationDate <-  as.POSIXct(pl_data$ListingCreationDate)
+pl_data$ClosedDate <- as.Date(pl_data$ClosedDate)
+pl_data$DateCreditPulled <- as.Date(pl_data$DateCreditPulled)
+pl_data$LoanOriginationDate <- as.Date(pl_data$LoanOriginationDate)
+
+str(pl_data)
+
+#interesting: occupation, employment status, credit grade, loan status, BorrowerAPR, 
+#DebtToIncomeRatio
+
+```
+
+```{r}
+
+employment <- pl_data %>%
+  group_by(Occupation, EmploymentStatus) %>%
+  summarise(n = n()) %>%
+  filter(Occupation != "" && Occupation != "Other") %>%
+  filter(n > 10)
+
+
+ggplot(employment, aes(reorder(Occupation, n), n, fill=EmploymentStatus)) +
+  geom_bar(stat = "identity") +
+  coord_flip()
+
+```
+
+```{r}
+grade_status <- pl_data %>%
+  group_by(CreditGrade, LoanStatus) %>%
+  summarise(n = n()) %>%
+  filter(CreditGrade != "")
+
+
+ggplot(grade_status, aes(CreditGrade, n, fill=LoanStatus)) +
+  geom_bar(stat = "identity") +
+  coord_flip()
+
+```
+
+```{r}
+var_for_export = c("ProsperRating..Alpha." , "BorrowerRate", "ListingCategory..numeric.", "Occupation" , "EmploymentStatus" , "EmploymentStatusDuration" , "IsBorrowerHomeowner")
+
+export_data <- pl_data %>%
+  filter(ListingCreationDate > "2009-07-01") %>%
+  select_(.dots = var_for_export)
+  
+
+#change numeric category listings to actual categories
+listing_cat_labels = c("Not Available", "Debt Consolidation", "Home Improvement", "Business", "Personal Loan", "Student Use", "Auto", "Other", "Baby&Adoption", "Boat", 
+                 "Cosmetic Procedure", "Engagement Ring", "Green Loans", "Household Expenses", "Large Purchases", "Medical/Dental", "Motorcycle", "RV", "Taxes", 
+                 "Vacation", "Wedding Loans")  
+
+export_data$ListingCategory..numeric. <- factor(export_data$ListingCategory..numeric.,
+                                                   levels=0:20,
+                                                   labels=listing_cat_labels)
+
+
+
+```
+
