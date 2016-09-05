@@ -15,6 +15,7 @@
    $brand-info:            #5bc0de !default;
    $brand-warning:         #f0ad4e !default;
    $brand-danger:          #ff4a08 !default;
+   $brand-grey:            #aaaaaa !default;
 
 
 
@@ -103,8 +104,14 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+html {
+     background: $brand-primary;
+   }
+
 body {
-  margin: 2em;
+  margin-top: 1em;
+  padding-top: 1em;
+  background: #fff;
 }
 
 #container {
@@ -117,6 +124,31 @@ body {
   margin: 0 -5em;
 }
 
+h1 {
+  color: $brand-primary;
+  font-size: 32pt;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  font-size: 16pt;
+  font-weight: lighter;
+  font-style: italic;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 1em;
+  border-bottom: solid 1px $brand-grey;
+}
+
+h3 {
+  color: $brand-primary;
+  font-size: 14pt;
+  font-weight: lighter;
+  padding: 2em 0 0 0;
+  margin: 0;
+}
 
 
 

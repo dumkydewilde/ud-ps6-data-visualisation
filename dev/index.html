@@ -23,11 +23,39 @@
         <![endif]-->
 
         <div id="container">
-          <h1>Interactive data visualisation</h1>
+          <h1>Loans: an interactive data visualisation</h1>
           <h2 class="sub">A project for the Udacity Data Analyst Nanodegree</h2>
-          <p>Getting started</p>
+          <h3>Introduction</h3>
+          <p>
+            When we think about loans, we often think about the economic and societal problems surrounding it.
+            We think about interest rates, the general probability of defaulting or bankruptcy. We think about the
+            economic implications for countries, but not so much about the actual people getting these loans, and the mundane things
+            they get their loans for: home improvement, a motorcycle, or maybe even a surgery. The following is an attempt to show the people
+            behind the loans: the jobs that they have and the reasons for getting a loan. It is an interactive visualisation using loan data set
+            from Prosper.
+          </p>
+          <p>
+            I used R to do some data wrangling on the original data set. I only used data from after 2009 for two reasons: there has been
+             a change in documenting the credit rating in the data set, and secondly I believe that the world has changed a lot during the
+             crisis of 2008/2009, especially when it comes to the financial decisions that people make. I wanted to use data that reflects the
+             way people think about money nowadays. Next, I started with a concept drawing of the data visualisation I was thinking of. I first
+             wanted to make a scatter plot with dots representing all the individuals so you could clearly see that these are all
+             unique people with different jobs, different types of loans, and different ratings. I quickly realised that although the
+             idea was interesting, plotting 80.000 dots was not going to make a lot of sense. 
+          </p>
 
-          <h3>What are you getting that loan for?</h3>
+          <h3>Who's getting a loan?</h3>
+          <p>
+
+          </p>
+          <div id="chart-controls">
+            <input name="mode" type="radio" value="ProsperRating..Alpha." id="rating" checked>
+              <label for="rating"> Rating</label>
+            <input name="mode" type="radio" value="ListingCategory" id="listCat">
+              <label for="listCat"> Purpose</label>
+            <input name="mode" type="radio" value="EmploymentStatus" id="listCat">
+              <label for="listCat"> Employment</label>
+
           <div id="chartContainer1" class="chartContainer"></div>
 
           <h3>What are you getting that loan for?</h3>
@@ -35,11 +63,7 @@
 
         </div>
 
-
-
-
-
         <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <script src="js/main2.js"></script>
     </body>
 </html>

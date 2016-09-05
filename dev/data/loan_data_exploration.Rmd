@@ -70,11 +70,15 @@ listing_cat_labels = c("Not Available", "Debt Consolidation", "Home Improvement"
                  "Cosmetic Procedure", "Engagement Ring", "Green Loans", "Household Expenses", "Large Purchases", "Medical/Dental", "Motorcycle", "RV", "Taxes", 
                  "Vacation", "Wedding Loans")  
 
-export_data$ListingCategory..numeric. <- factor(export_data$ListingCategory..numeric.,
+export_data$ListingCategory <- export_data$ListingCategory..numeric.
+export_data$ListingCategory <- factor(export_data$ListingCategory,
                                                    levels=0:20,
                                                    labels=listing_cat_labels)
 
+export_data <- export_data %>%
+  count(Occupation, EmploymentStatus, ListingCategory, ProsperRating..Alpha.)
 
+write.csv(export_data, file = "pldata.csv", row.names = F)
 
 ```
 
