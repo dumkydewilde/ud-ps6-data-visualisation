@@ -3,9 +3,9 @@ var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 
 gulp.task('sass', function(){
-  return gulp.src('dev/scss/**/*.scss')
+  return gulp.src('final_project/scss/**/*.scss')
     .pipe(sass()) // Using gulp-sass
-    .pipe(gulp.dest('dev/css'))
+    .pipe(gulp.dest('final_project/css'))
     .pipe(browserSync.reload({
       stream : true
     }))
@@ -14,13 +14,13 @@ gulp.task('sass', function(){
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
-      baseDir: 'dev'
+      baseDir: 'final_project'
     },
   })
 });
 
 gulp.task('watch', ['browserSync', 'sass'], function (){
-  gulp.watch('dev/scss/*.scss', ['sass']);
-  gulp.watch('dev/*.html', browserSync.reload);
-  gulp.watch('dev/js/**/*.js', browserSync.reload);
+  gulp.watch('final_project/scss/*.scss', ['sass']);
+  gulp.watch('final_project/*.html', browserSync.reload);
+  gulp.watch('final_project/js/**/*.js', browserSync.reload);
 })
