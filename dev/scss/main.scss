@@ -110,7 +110,7 @@ html {
 
 body {
   margin-top: 1em;
-  padding-top: 1em;
+  padding: 1em 0 4em 0;
   background: #fff;
 }
 
@@ -133,6 +133,15 @@ h1 {
 }
 
 h2 {
+  color: $brand-primary;
+  font-size: 24pt;
+  font-weight: lighter;
+  margin: 0;
+  padding: 0.5em 0;
+  border-bottom: solid 1px $brand-grey;
+}
+
+.sub {
   font-size: 16pt;
   font-weight: lighter;
   font-style: italic;
@@ -146,18 +155,65 @@ h3 {
   color: $brand-primary;
   font-size: 14pt;
   font-weight: lighter;
-  padding: 2em 0 0 0;
+  padding: 1em 0 0 0;
   margin: 0;
 }
 
+#nav {
+  background: $brand-primary;
+  margin: -2em 0 4em 0;
+  text-align: center;
 
+}
 
+#nav-list {
+  padding: 0.5em;
+}
 
+#nav-list li {
+  display: inline-block;
+  color: #fff;
+  font-weight: lighter;
+  padding: 0.5em;
+}
 
+#nav-list a {
+  text-decoration: none;
+  color: inherit;
+}
 
+.nav-current {
+  border: 1px solid #fff;
+  border-radius: 6px;
+}
 
+.img img {
+  width: 100%;
+  padding: 1em;
+}
 
+.img p {
+  font-style: italic;
+  font-size: 0.8em;
+}
 
+a {
+  text-decoration: none;
+  color: $brand-primary;
+}
+
+a:hover {
+  text-decoration: none;
+  color: $brand-grey;
+}
+
+input {
+  margin-left: 3em;
+}
+
+label {
+  font-style: italic;
+}
 
 
 
