@@ -25,7 +25,7 @@ var svg2 = dimple.newSvg("#chartContainer2", "100%", "500");
 
       //Add the interactivity from the radio buttons
       d3.selectAll("#chart-controls input[name=mode]").on("change", function() {
-        console.log(this.value);
+      
         //Remove the previous bars before we add the new set of stacked bars
         myChart1.series.forEach(function(series){
           series.shapes.remove();
