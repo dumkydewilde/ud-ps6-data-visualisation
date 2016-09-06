@@ -2,7 +2,7 @@ var svg1 = dimple.newSvg("#chartContainer1", "100%", "800");
 
   d3.csv("/data/pldata.csv", function (d) {
 
-      console.log(d[10]);
+      
       chart1Data = d.filter(function(d){return d["Occupation"] !== 'Other' && d["Occupation"] !== "" && d["n"] > 10;});
       var myChart1 = new dimple.chart(svg1, chart1Data);
       myChart1.setMargins("175px", "30px", "30px", "70px");

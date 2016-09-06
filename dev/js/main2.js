@@ -2,9 +2,9 @@
 var svg1 = dimple.newSvg("#chartContainer1", "100%", "700");
 var svg2 = dimple.newSvg("#chartContainer2", "100%", "500");
 
-  d3.csv("/data/pldata.csv", function (d) {
+  d3.csv("data/pldata.csv", function (d) {
 
-      //CHART 1
+      console.log(d[10]);
       // Because the chart is more about the people behind the loans, we'll filter out elements that are none descriptive
       chart1Data = d.filter(function(d){return d["Occupation"] !== 'Other' && d["Occupation"] !== "" && d["Occupation"] !== "Professional" && d["n"] > 20;});
       var myChart1 = new dimple.chart(svg1, chart1Data);
