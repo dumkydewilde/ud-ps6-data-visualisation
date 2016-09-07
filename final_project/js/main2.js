@@ -2,7 +2,7 @@
 var svg1 = dimple.newSvg("#chartContainer1", "100%", "700");
 var svg2 = dimple.newSvg("#chartContainer2", "100%", "500");
 
-  d3.csv("/data/pldata.csv", function (d) {
+  d3.csv("/ud-ps6/data/pldata.csv", function (d) {
 
       //CHART 1
       // Because the chart is more about the people behind the loans, we'll filter out elements that are none descriptive
@@ -25,7 +25,7 @@ var svg2 = dimple.newSvg("#chartContainer2", "100%", "500");
 
       //Add the interactivity from the radio buttons
       d3.selectAll("#chart-controls input[name=mode]").on("change", function() {
-      
+
         //Remove the previous bars before we add the new set of stacked bars
         myChart1.series.forEach(function(series){
           series.shapes.remove();

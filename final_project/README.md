@@ -7,21 +7,36 @@ My focus has been to not just show the numbers, interest rates and credit rating
 sometimes sacrificed general trends for details to show the characteristics of the people behind the loans.
 
 ## Design
-I started out wanting to plot every individual, but quickly realised that was going to be confusing and messy. I then focussed on the jobs people had, but missed some interactivity and
-basically just got a long list. I then decided to focus on allowing people to kind of play with the different characteristics and see for themselves the diversity and variety in the data set.
-I deliberately let out large parts from the data set consisting of general terms like 'Other' or 'Professional'.
+I first wanted to make a scatter plot with dots representing all the individuals so you could clearly see that these are all unique people with different jobs, different types of loans,
+and different ratings. I quickly realized that although the idea was interesting, plotting 80.000 dots was not going to make a lot of sense. My next step was to focus on the jobs people
+have. A job is something people can relate to and understand the differences between people and groups of people. I decided on a bar chart because it well suited to displaying categorical
+data. My preference, especially when the user has to read a label, is for horizontal bar charts. This is what I used to make my first version. The interactivity here consisted just of a tooltip
+to read out the exact numbers from the data.
+
+After getting the feedback I changed a couple of important things in terms of design.
+* I added some more features from the data set to create a stacked bar chart, thereby adding an extra dimension to the chart. I used different colors for the stacking to visualize the different categories.
+* I choose to sort the bar chart by number of loans so people could also see in which jobs people take out the most loans.
+* I also added some interactivity by allowing the user to choose the type of stacking for the bar chart by selecting a radio button. By selecting a different option, the legend would change and a change in the stacking (and redrawing of the chart) would be animated.
+* Finally, because of a suggestion from the feedback I decided to add a second graph to show the relation between the different purposes
+  of getting a loan. I know pie charts get a bad rep, especially when showing a lot of different (small) parts. But I do feel that with
+  some adjustments they can be justified. In this case I felt that with added interactivity of being able to select what is shown,
+  a pie chart would work well because it allows a very direct comparison between the elements of a category. I also decided to turn
+  it into a ring chart so it would work better when animating the effect of changing the selection.
+* For the ring chart I also chose to 'unselect' the two largest options from the interactive legend. This puts the focus more on the
+  things that people can relate to and understand, like 'home improvement', instead of a more vague term like 'debt consolidation' and 'other'.
+  People however still have the option to select these elements and see how they relate to the other elements (they are by far the largest).
 
 ## Feedback
 ### Feedback: Joanne (27)
   I asked Joanne a couple of questions on both the concept version and version 1. Questions like: 'What do you notice?', 'What is the takeaway?' 'Are things unclear, or is their anything you don't understand?'
   Joanne's response on the concept was that it was quite unclear. She didn't really took away anything other than that it was just a lot of different points mashed together. When I explained the concept of
-  using individuals as points and thereby showing the individual behind a loan she liked that concept, but thought it didn't come through in the visualisation. She liked the version 1 better, although her commentary
+  using individuals as points and thereby showing the individual behind a loan she liked that concept, but thought it didn't come through in the visualization. She liked the version 1 better, although her commentary
   was that it was too much of a list and still missed some interaction or understanding of who these people are and what they do. I decided to shorten the list a bit by leaving out the elements with an n < 20.
 
 ### Feedback: Hans (70)
 
   I asked Hans similar questions as Joanne, and he had a look at version 1. His response was that it was interesting to see the differences between which jobs took out the most loans, but he noticed that
-  the graph lacked a kind of exploratory part. There wasn't really much to interact with. Althought the jobs part was somewhat interesting, he didn't really get the concept of the people and their characteristics
+  the graph lacked a kind of exploratory part. There wasn't really much to interact with. Although the jobs part was somewhat interesting, he didn't really get the concept of the people and their characteristics
   behind the loans.
 
 ### Feedback: Sophie (27)
