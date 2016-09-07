@@ -2,11 +2,13 @@
 var svg1 = dimple.newSvg("#chartContainer1", "100%", "700");
 var svg2 = dimple.newSvg("#chartContainer2", "100%", "500");
 
-  d3.csv("/ud-ps6/data/pldata.csv", function (d) {
+  d3.csv("/data/pldata.csv", function (d) {
 
       //CHART 1
-      // Because the chart is more about the people behind the loans, we'll filter out elements that are none descriptive
-      chart1Data = d.filter(function(d){return d["Occupation"] !== 'Other' && d["Occupation"] !== "" && d["Occupation"] !== "Professional" && d["n"] > 20;});
+      // Because the chart is more about the people behind the loans, we'll
+      // filter out elements that are none descriptive
+      chart1Data = d.filter(function(d){return d["Occupation"] !== 'Other' &&
+        d["Occupation"] !== "" && d["Occupation"] !== "Professional" && d["n"] > 20;});
       var myChart1 = new dimple.chart(svg1, chart1Data);
       myChart1.setMargins("175px", "30px", "150px", "70px");
       var x = myChart1.addMeasureAxis("x", "n");
@@ -42,14 +44,18 @@ var svg2 = dimple.newSvg("#chartContainer2", "100%", "500");
 
       //CHART 2
       //The categories we want to use
-      var category_names = ["Debt Consolidation", "Home Improvement", "Business", "Personal Loan", "Student Use", "Auto", "Other", "Baby&Adoption", "Boat",
-                 "Cosmetic Procedure", "Engagement Ring", "Green Loans", "Household Expenses", "Large Purchases", "Medical/Dental", "Motorcycle", "RV", "Taxes",
-                 "Vacation", "Wedding Loans"];
+      var category_names = ["Debt Consolidation", "Home Improvement", "Business",
+        "Personal Loan", "Student Use", "Auto", "Other", "Baby&Adoption", "Boat",
+        "Cosmetic Procedure", "Engagement Ring", "Green Loans", "Household Expenses",
+        "Large Purchases", "Medical/Dental", "Motorcycle", "RV", "Taxes",
+        "Vacation", "Wedding Loans"];
 
-      //The categories without 'Debt consolidation' and 'other' so we can focus on the details.
-     var starting_values = ["Home Improvement", "Business", "Personal Loan", "Student Use", "Auto", "Baby&Adoption", "Boat",
-                "Cosmetic Procedure", "Engagement Ring", "Green Loans", "Household Expenses", "Large Purchases", "Medical/Dental", "Motorcycle", "RV", "Taxes",
-                "Vacation", "Wedding Loans"];
+      //The categories without 'Debt consolidation' and 'other' so we can focus
+      //on the details.
+     var starting_values = ["Home Improvement", "Business", "Personal Loan",
+        "Student Use", "Auto", "Baby&Adoption", "Boat", "Cosmetic Procedure",
+        "Engagement Ring", "Green Loans", "Household Expenses", "Large Purchases",
+        "Medical/Dental", "Motorcycle", "RV", "Taxes", "Vacation", "Wedding Loans"];
 
       chart2Data = dimple.filterData(d, "ListingCategory", category_names);
 
@@ -65,8 +71,10 @@ var svg2 = dimple.newSvg("#chartContainer2", "100%", "500");
       window.onresize = function () {
         myChart2.draw(0, true);
       };
-      //Orphan the legend so we can use it for toggling the different values without changing the legend
+      //Orphan the legend so we can use it for toggling the different values
+      //without changing the legend
       myChart2.legends = [];
+
       //We manually filter out and visually turn of the two largest parts of the data set
       myLegend.shapes.select('.dimple-debt-consolidation rect').style("opacity", 0.1);
       myLegend.shapes.select('.dimple-other rect').style("opacity", 0.1);
